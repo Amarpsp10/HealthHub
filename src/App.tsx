@@ -5,9 +5,12 @@ import {
 } from 'react-native-safe-area-context';
 import {AppNavigator} from './navigators/AppNavigator';
 import {useInitialRootStore} from './store';
+import BootSplash from 'react-native-bootsplash';
 
 const App: React.FC = () => {
-  const {rehydrated} = useInitialRootStore(() => {});
+  const {rehydrated} = useInitialRootStore(() => {
+    BootSplash.hide({fade: true});
+  });
 
   if (!rehydrated) {
     return null;
